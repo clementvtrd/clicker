@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux"
 import "./Display.scss"
+import { RootState } from "../store/store"
+
+function selectLines(store: RootState): number
+{
+    return store.game.lines
+}
 
 function Display() {
-    const store = useSelector((store) => store)
-    console.log("store:", store);
-    const count = 0
-    return <p className="counter">{Math.floor(count)} lines</p>
+    const lines = useSelector(selectLines)
+    return <p className="counter">{Math.floor(lines)} lines</p>
 }
 
 export default Display

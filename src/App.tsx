@@ -6,9 +6,7 @@ import {
 } from "react-router-dom"
 import { Provider } from "react-redux"
 import Clicker from "./clicker/Clicker"
-import configureStore from "./store/configureStore"
-
-const store = configureStore()
+import { store } from "./store/store"
 
 function App() {
     return (

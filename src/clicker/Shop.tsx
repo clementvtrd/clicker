@@ -1,27 +1,19 @@
 
-import items, { ItemType } from "./items"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+
+import items from "./items"
 import Item from "./Item"
-import { useEffect, useMemo } from "react"
+import { loop } from "../store/modules/game"
 
 function Shop() {
-    const holdItems: ItemType[] = []
-    const setCount = (n: number) => {}
-    const count = 0
-
-    const multiplier = useMemo(
-        () => holdItems.reduce(
-            (total, { multiplier }) => total + multiplier,
-            0
-        ),
-        []
-    )
+    const dispatch = useDispatch()
 
     useEffect(
         () => {
             const interval = setInterval(() => {
-                console.log("setinterval");
-                setCount(count + multiplier)
-            }, 250)
+                dispatch(loop())
+            }, 500)
             return () => clearInterval(interval)
         }
     )

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import GitCoin from "./GitCoin"
 import Display from "./Display"
 import Shop from "./Shop"
